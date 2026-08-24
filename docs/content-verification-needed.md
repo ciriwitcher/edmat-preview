@@ -88,6 +88,16 @@ W treści starych wpisów „Aktualności” (nie w dedykowanej sekcji opinii) z
 
 Trzy migrowane wpisy aktualności („Otwarcie strony firmowej”, „EDMAT na portalach społecznościowych”, „Kolejne inwestycje zakończone”) nie miały na starej stronie w pełni jednoznacznej daty publikacji w treści dostępnej do odczytu. W `supabase/seed.mjs` przyjęto rozsądnie przybliżone daty na podstawie kontekstu (np. artykuł o zakończonych inwestycjach wspomina wprost „wrzesień i październik 2014”, więc przyjęto publikację na początku listopada 2014; artykuł o otwarciu strony i o social media to najwcześniejsze wpisy, przyjęto rok 2013). **Te daty nie są prezentowane jako pewne fakty gdzie indziej niż daty publikacji archiwalnych wpisów** — jeśli klient posiada dokładniejsze daty, należy je zaktualizować w panelu `/admin`.
 
+## 14. Dodatkowa galeria zdjęć znaleziona po pierwszym audycie
+
+Po pierwszym wdrożeniu odkryto, że stare strony kategorii mebli (`/meble-na-wymiar/kuchenne`, `/szafy-wnekowe-do-zabudowy`, `/do-sypialni`) osadzały dodatkową galerię zdjęć pod `/images/galeria/...`, odrębną od komponentu „Realizacje" (K2) zindeksowanego w mapie witryny. Z tego źródła domigrowano:
+
+- 2 nowe, wcześniej pominięte realizacje kuchni („Kuchnia w jasnym brązie z nadrukiem trawy", „Kuchnia w kolorze ecru z oświetleniem LED"),
+- 1 nową realizację szafy wnękowej („Szafa wnękowa kremowa z czarnym szkłem"),
+- 12 dodatkowych zdjęć do istniejącej realizacji „Zabudowa biura" (ten sam projekt, inne ujęcia — użyto ich do wyboru lepszej okładki).
+
+Katalogi `/images/galeria/meble_do_salonu/`, `/images/galeria/meble_lazienkowe/` zwracają 403 (folder istnieje), ale żadna aktualnie renderowana strona do nich nie linkuje, więc nie udało się ustalić nazw plików — te dwie kategorie (oraz „meble do przedpokoju") nadal nie mają autentycznych zdjęć EDMAT. Jeżeli klient ma dostęp do panelu starej strony (Joomla) lub do oryginalnych plików, warto poprosić o ręczne przesłanie zdjęć tych realizacji przez `/admin`.
+
 ## Podsumowanie działań
 
 | # | Kwestia | Status w nowej stronie |

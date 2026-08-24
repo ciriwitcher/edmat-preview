@@ -268,6 +268,44 @@ const projects = [
     ],
     cover: "IMG_20161007_120017.jpg",
   },
+  {
+    folder: "kuchnia-w-jasnym-brazie",
+    slug: "kuchnia-w-jasnym-brazie",
+    title: "Kuchnia w jasnym brązie z nadrukiem trawy",
+    category: "kuchnie",
+    description:
+      "Kuchnia na wymiar w kolorze jasnego brązu, z charakterystycznym panelem przyblatowym z nadrukiem trawy, wykonana w układzie z narożnym blatem roboczym.",
+    files: ["kuchnia_jasny_braz1.jpg", "kuchnia_jasny_braz2.jpg", "kuchnia_jasny_braz3.jpg"],
+    cover: "kuchnia_jasny_braz1.jpg",
+  },
+  {
+    folder: "kuchnia-w-kolorze-ecru",
+    slug: "kuchnia-w-kolorze-ecru",
+    title: "Kuchnia w kolorze ecru z oświetleniem LED",
+    category: "kuchnie",
+    description:
+      "Kuchnia na wymiar z frontami w kolorze ecru, w wysokim połysku, z podświetleniem LED pod szafkami górnymi.",
+    files: ["meble_kuchenne_ekri1.jpg", "meble_kuchenne_ekri2.jpg", "meble_kuchenne_ekri3.jpg"],
+    cover: "meble_kuchenne_ekri1.jpg",
+  },
+  {
+    folder: "szafa-wnekowa-kremowa",
+    slug: "szafa-wnekowa-kremowa",
+    title: "Szafa wnękowa kremowa z czarnym szkłem",
+    category: "szafy",
+    description:
+      "Szafa przesuwna do zabudowy wnęki, z frontami w kolorze kremowym i poziomymi pasami z czarnego szkła lacobel.",
+    files: [
+      "szafa_wnekowa_1.jpg",
+      "szafa_wnekowa_2.jpg",
+      "szafa_wnekowa_3.jpg",
+      "szafa_wnekowa_4.jpg",
+      "szafa_wnekowa_5.jpg",
+      "szafa_wnekowa_6.jpg",
+      "szafa_wnekowa_7.jpg",
+    ],
+    cover: "szafa_wnekowa_1.jpg",
+  },
 ];
 
 const posts = [

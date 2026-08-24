@@ -1,24 +1,29 @@
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { PatternSwatch } from "@/components/ui/PatternSwatch";
 import catKuchnia from "@/assets/marketing/cat-kuchnia.jpg";
 import catSzafy from "@/assets/marketing/cat-szafy.jpg";
 import catSypialnia from "@/assets/marketing/cat-sypialnia.jpg";
+import catBiuro from "@/assets/marketing/cat-biuro.jpg";
+
+type PatternVariant = "slats-horizontal" | "slats-vertical" | "pleated" | "mesh" | "roller";
 
 type Category = {
   title: string;
   href: string;
   image?: StaticImageData;
+  pattern?: PatternVariant;
 };
 
 const categories: Category[] = [
   { title: "Meble kuchenne", href: "/meble-na-wymiar/kuchenne", image: catKuchnia },
   { title: "Szafy na wymiar", href: "/meble-na-wymiar/szafy-wnekowe-do-zabudowy", image: catSzafy },
   { title: "Meble do sypialni", href: "/meble-na-wymiar/do-sypialni", image: catSypialnia },
-  { title: "Meble do salonu", href: "/meble-na-wymiar/do-salonu" },
-  { title: "Meble łazienkowe", href: "/meble-na-wymiar/lazienkowe" },
-  { title: "Meble do przedpokoju", href: "/meble-na-wymiar/do-przedpokoju" },
-  { title: "Meble biurowe", href: "/meble-na-wymiar/biurowe" },
+  { title: "Meble biurowe", href: "/meble-na-wymiar/biurowe", image: catBiuro },
+  { title: "Meble do salonu", href: "/meble-na-wymiar/do-salonu", pattern: "slats-horizontal" },
+  { title: "Meble łazienkowe", href: "/meble-na-wymiar/lazienkowe", pattern: "pleated" },
+  { title: "Meble do przedpokoju", href: "/meble-na-wymiar/do-przedpokoju", pattern: "slats-vertical" },
 ];
 
 export function FurnitureCategories() {
@@ -50,7 +55,10 @@ export function FurnitureCategories() {
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
                 </>
               ) : (
-                <div className="absolute inset-0 bg-[linear-gradient(135deg,#2a2622_0%,#201d1a_60%)]" />
+                <>
+                  <PatternSwatch variant={category.pattern ?? "slats-horizontal"} className="absolute inset-0 h-full w-full" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/25 to-transparent" />
+                </>
               )}
               <span className="relative z-10 p-4 font-display text-lg text-white sm:p-5 sm:text-xl">
                 {category.title}

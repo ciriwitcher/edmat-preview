@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Work_Sans } from "next/font/google";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { siteConfig } from "@/lib/site-config";
@@ -18,6 +18,11 @@ const workSans = Work_Sans({
   weight: ["400", "500", "600", "700"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  colorScheme: "light",
+  themeColor: "#f7f4ee",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

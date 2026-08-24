@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 :root {
+  /* Strona ma świadomie tylko jasny motyw — bez tego przeglądarki z
+     heurystycznym auto-dark-mode (np. wymuszone ciemne motywy w Chrome)
+     odwracają jasność kolorów, psując cały design (kremowe tło i czarny
+     tekst zamieniają się w brudny brąz z białym tekstem). */
+  color-scheme: light;
   --color-paper: #f7f4ee;
   --color-paper-alt: #efe8db;
   --color-ink: #201d1a;
