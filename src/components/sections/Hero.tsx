@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-line bg-paper">
       <div className="container-edmat grid gap-10 py-12 sm:py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16 lg:py-20">
-        <div className="flex flex-col gap-7">
+        <div className="hero-sequence flex flex-col gap-7">
           <span className="inline-flex w-fit items-center gap-2 border border-line bg-white px-3 py-1.5 text-xs font-medium uppercase tracking-[0.12em] text-ink-soft">
             Krosno · od {siteConfig.foundedYear} roku
           </span>
@@ -54,7 +54,7 @@ export function Hero() {
           </dl>
         </div>
 
-        <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden lg:max-w-none">
+        <div className="hero-photo-in relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden lg:max-w-none">
           <Image
             src={heroImage}
             alt="Kuchnia na wymiar zrealizowana przez EDMAT — biała zabudowa z wyspą i blatem dębowym"

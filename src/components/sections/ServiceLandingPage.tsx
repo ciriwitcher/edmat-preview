@@ -5,6 +5,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PatternSwatch } from "@/components/ui/PatternSwatch";
 import { Accordion } from "@/components/ui/Accordion";
 import { ProjectCard } from "@/components/ui/ProjectCard";
+import { Reveal } from "@/components/ui/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { getPublishedProjects } from "@/lib/queries";
 import type { ServicePageContent } from "@/lib/content/types";
@@ -99,11 +101,11 @@ export async function ServiceLandingPage({ content }: { content: ServicePageCont
         <div className="container-edmat">
           <h2 className="text-2xl sm:text-3xl">Warianty</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {content.variants.map((variant) => (
-              <div key={variant.title} className="border border-line bg-white p-6">
+            {content.variants.map((variant, index) => (
+              <Reveal as="div" key={variant.title} delay={staggerDelay(index)} className="border border-line bg-white p-6">
                 <h3 className="font-display text-lg text-ink">{variant.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-ink-soft">{variant.description}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -129,11 +131,11 @@ export async function ServiceLandingPage({ content }: { content: ServicePageCont
           <SectionHeading eyebrow="Jak pracujemy" title="Proces realizacji" tone="paper" />
           <ol className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => (
-              <li key={step.title} className="border-t border-paper/25 pt-5">
+              <Reveal as="li" key={step.title} delay={staggerDelay(index)} className="border-t border-paper/25 pt-5">
                 <span className="font-display text-2xl text-accent">{String(index + 1).padStart(2, "0")}</span>
                 <h3 className="mt-3 text-white">{step.title}</h3>
                 <p className="mt-2 text-sm text-paper/70">{step.description}</p>
-              </li>
+              </Reveal>
             ))}
           </ol>
         </div>
@@ -149,8 +151,10 @@ export async function ServiceLandingPage({ content }: { content: ServicePageCont
               </Link>
             </div>
             <div className="mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-              {relatedProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+              {relatedProjects.map((project, index) => (
+                <Reveal key={project.id} delay={staggerDelay(index)}>
+                  <ProjectCard project={project} />
+                </Reveal>
               ))}
             </div>
           </div>

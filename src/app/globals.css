@@ -87,12 +87,104 @@
   }
 }
 
+/* Panel mobilnego menu: wysokość liczona od dołu paska nagłówka (5rem = h-20)
+   do dołu viewportu. 100vh jako fallback, 100dvh nadpisuje go tam, gdzie jest
+   wspierane — na mobile Safari/Chrome dvh poprawnie kurczy/rozszerza panel przy
+   chowaniu się paska adresu, więc `bottom-0` nigdy nie ucina ostatnich pozycji
+   menu i nie zostawia martwej przestrzeni pod nim. */
+.mobile-nav-panel {
+  height: calc(100vh - 5rem);
+  height: calc(100dvh - 5rem);
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+/* Gdy mobilne menu jest otwarte, reszta strony jest wizualnie zakryta (panel
+   menu renderuje się nad nią), ale bez tego linki w tle (stopka, sticky CTA)
+   zostawałyby osiągalne klawiszem Tab mimo bycia niewidocznymi pod panelem. */
+body.mobile-nav-open #main-content,
+body.mobile-nav-open #site-footer,
+body.mobile-nav-open #sticky-mobile-cta {
+  visibility: hidden;
+}
+
+/* System animacji wejścia (scroll reveal). Bazowy stan `.reveal` jest zawsze w
+   pełni widoczny — to gwarantuje, że treść działa bez JS. `transition` żyje na
+   klasie bazowej (nie na `.reveal-hidden`), bo usunięcie atrybutu/klasy w tym
+   samym momencie, w którym zmienia się opacity, skasowałoby też regułę
+   transition i animacja "przeskoczyłaby" bez płynnego przejścia. `Reveal.tsx`
+   dokłada `.reveal-hidden` dopiero po zamontowaniu (i tylko gdy IntersectionObserver
+   jest dostępny i użytkownik nie woli ograniczonych animacji) — do tego momentu
+   element renderuje się normalnie. */
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--reveal-duration, 600ms) cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    transform var(--reveal-duration, 600ms) cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+}
+
+.reveal.reveal-hidden {
+  opacity: 0;
+  transform: var(--reveal-offset, translateY(22px));
+  transition-duration: 0ms;
+}
+
+/* Hero: sekwencja czysto CSS (bez zależności od JS/observera), bo to treść
+   nad zgięciem strony i element LCP — nie może czekać na hydrację ani na
+   IntersectionObserver. `animation-fill-mode: both` gwarantuje, że przed
+   startem i po zakończeniu element ma docelowe opacity: 1 (nigdy trwałe 0),
+   a `prefers-reduced-motion` niżej wyłącza tę animację w 0.01ms. */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-sequence > * {
+  animation: hero-in 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-sequence > *:nth-child(1) { animation-delay: 0ms; }
+.hero-sequence > *:nth-child(2) { animation-delay: 80ms; }
+.hero-sequence > *:nth-child(3) { animation-delay: 160ms; }
+.hero-sequence > *:nth-child(4) { animation-delay: 240ms; }
+.hero-sequence > *:nth-child(5) { animation-delay: 320ms; }
+
+/* Zdjęcie hero to zwykle element LCP — w przeciwieństwie do `.hero-sequence`
+   nigdy nie startuje z opacity: 0 (to opóźniałoby moment, w którym przeglądarka
+   liczy Largest Contentful Paint). Animujemy wyłącznie transform (skala), co
+   jest wizualnie subtelne, a obraz pozostaje w pełni "namalowany" od pierwszej
+   klatki. */
+@keyframes hero-photo-in {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-photo-in {
+  animation: hero-photo-in 900ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal.reveal-hidden {
+    opacity: 1;
+    transform: none;
   }
 }
 

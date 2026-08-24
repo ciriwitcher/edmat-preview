@@ -1,4 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 
 const steps = [
   {
@@ -31,11 +33,11 @@ export function Process() {
 
         <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
-            <li key={step.title} className="relative border-t border-paper/25 pt-6">
+            <Reveal as="li" key={step.title} delay={staggerDelay(index)} className="relative border-t border-paper/25 pt-6">
               <span className="font-display text-3xl text-accent">{String(index + 1).padStart(2, "0")}</span>
               <h3 className="mt-4 text-lg text-white">{step.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-paper/70">{step.description}</p>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </div>

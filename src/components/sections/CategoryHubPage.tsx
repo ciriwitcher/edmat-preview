@@ -5,6 +5,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { PatternSwatch } from "@/components/ui/PatternSwatch";
 import { Accordion } from "@/components/ui/Accordion";
 import { ProjectCard } from "@/components/ui/ProjectCard";
+import { Reveal } from "@/components/ui/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { getPublishedProjects } from "@/lib/queries";
 import type { CategoryHubContent } from "@/lib/content/category-hubs";
@@ -39,34 +41,35 @@ export async function CategoryHubPage({ content }: { content: CategoryHubContent
       <section className="border-b border-line bg-paper-alt py-14 sm:py-20">
         <div className="container-edmat">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {content.items.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group flex flex-col border border-line bg-white transition-colors hover:border-accent"
-              >
-                {item.image ? (
-                  <div className="relative h-36 w-full overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+            {content.items.map((item, index) => (
+              <Reveal key={item.href} delay={staggerDelay(index)}>
+                <Link
+                  href={item.href}
+                  className="group flex h-full flex-col border border-line bg-white transition-colors hover:border-accent"
+                >
+                  {item.image ? (
+                    <div className="relative h-36 w-full overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  ) : (
+                    item.pattern && <PatternSwatch variant={item.pattern} className="h-32 w-full" />
+                  )}
+                  <div className="flex flex-1 flex-col p-5">
+                    <h2 className="font-display text-lg text-ink">{item.title}</h2>
+                    <p className="mt-2 flex-1 text-sm text-ink-soft">{item.description}</p>
+                    <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                      Dowiedz się więcej
+                      <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                    </span>
                   </div>
-                ) : (
-                  item.pattern && <PatternSwatch variant={item.pattern} className="h-32 w-full" />
-                )}
-                <div className="flex flex-1 flex-col p-5">
-                  <h2 className="font-display text-lg text-ink">{item.title}</h2>
-                  <p className="mt-2 flex-1 text-sm text-ink-soft">{item.description}</p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                    Dowiedz się więcej
-                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
-                  </span>
-                </div>
-              </Link>
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -82,8 +85,10 @@ export async function CategoryHubPage({ content }: { content: CategoryHubContent
               </Link>
             </div>
             <div className="mt-10 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-              {projects.map((project) => (
-                <ProjectCard key={project.id} project={project} />
+              {projects.map((project, index) => (
+                <Reveal key={project.id} delay={staggerDelay(index)}>
+                  <ProjectCard project={project} />
+                </Reveal>
               ))}
             </div>
           </div>

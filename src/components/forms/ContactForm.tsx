@@ -86,7 +86,7 @@ export function ContactForm() {
         <legend className="mb-2 block text-sm font-medium text-ink">Czego dotyczy zapytanie?</legend>
         <div className="flex flex-wrap gap-4">
           {interestOptions.map((option) => (
-            <label key={option.value} className="flex items-center gap-2 text-sm text-ink-soft">
+            <label key={option.value} className="flex min-h-11 items-center gap-2 text-sm text-ink-soft">
               <input type="radio" name="interest" value={option.value} required defaultChecked={option.value === "meble-na-wymiar"} />
               {option.label}
             </label>

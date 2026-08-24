@@ -24,11 +24,34 @@ export function Header() {
     setMobileSection(null);
   }
 
+  // Blokada scrolla body. `overflow: hidden` na body NIE zatrzymuje touch-scrolla
+  // tła w mobile Safari (rubber-band/elastic scroll przebija blokadę i potrafi
+  // przesunąć pozycję strony pod spodem). Jedyna niezawodna technika to
+  // przypięcie body na `position: fixed` ze skompensowanym `top`, i przywrócenie
+  // dokładnej pozycji scrolla po zamknięciu — bez tego Test C/D/E z audytu (scroll
+  // pozostaje w tym samym miejscu po zamknięciu; wielokrotne otwarcie/zamknięcie
+  // nie blokuje strony na trwałe) by nie przechodziły na realnym iOS.
   useEffect(() => {
     if (!mobileOpen) return;
-    document.body.style.overflow = "hidden";
+    const scrollY = window.scrollY;
+    const body = document.body;
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+    body.style.overflow = "hidden";
+    body.classList.add("mobile-nav-open");
+
     return () => {
-      document.body.style.overflow = "";
+      body.style.position = "";
+      body.style.top = "";
+      body.style.left = "";
+      body.style.right = "";
+      body.style.width = "";
+      body.style.overflow = "";
+      body.classList.remove("mobile-nav-open");
+      window.scrollTo(0, scrollY);
     };
   }, [mobileOpen]);
 
@@ -41,6 +64,22 @@ export function Header() {
     }
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
+
+  // Gdy viewport przechodzi z mobile na desktop (np. obrót ekranu / zmiana
+  // rozmiaru okna) podczas otwartego mobile menu, hamburger i panel znikają
+  // (lg:hidden), ale bez tego stan (i blokada scrolla body) zostałby "osierocony".
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 1024px)");
+    function syncToDesktop(e: MediaQueryList | MediaQueryListEvent) {
+      if (e.matches) {
+        setMobileOpen(false);
+        setMobileSection(null);
+      }
+    }
+    syncToDesktop(query);
+    query.addEventListener("change", syncToDesktop);
+    return () => query.removeEventListener("change", syncToDesktop);
   }, []);
 
   function scheduleClose() {
@@ -110,7 +149,7 @@ export function Header() {
 
                   {isOpen && "megaMenu" in item && item.megaMenu && (
                     <div
-                      className="absolute left-1/2 top-full w-[min(90vw,44rem)] -translate-x-1/2 pt-3"
+                      className="absolute left-0 top-full w-[min(90vw,44rem)] pt-3"
                       onMouseEnter={cancelClose}
                       onMouseLeave={scheduleClose}
                     >
@@ -195,11 +234,12 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <div
+        <nav
           id="mobile-nav"
-          className="fixed inset-x-0 top-20 bottom-0 z-40 overflow-y-auto bg-paper lg:hidden"
+          aria-label="Nawigacja mobilna"
+          className="mobile-nav-panel fixed inset-x-0 top-20 z-40 overflow-y-auto overscroll-contain bg-paper lg:hidden"
         >
-          <div className="container-edmat flex flex-col gap-1 py-6">
+          <div className="container-edmat flex flex-col gap-1 pt-6 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
             {navigationConfig.main.map((item) => {
               const hasMenu = "megaMenu" in item && item.megaMenu;
               if (!hasMenu) {
@@ -221,6 +261,7 @@ export function Header() {
                     type="button"
                     className="flex w-full items-center justify-between py-4 text-lg font-medium text-ink"
                     aria-expanded={isSectionOpen}
+                    aria-controls={`mobile-submenu-${item.label}`}
                     onClick={() => setMobileSection(isSectionOpen ? null : item.label)}
                   >
                     {item.label}
@@ -229,13 +270,13 @@ export function Header() {
                       width="14"
                       height="8"
                       viewBox="0 0 10 6"
-                      className={`transition-transform duration-200 ${isSectionOpen ? "rotate-180" : ""}`}
+                      className={`shrink-0 transition-transform duration-200 ${isSectionOpen ? "rotate-180" : ""}`}
                     >
                       <path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </button>
                   {isSectionOpen && "megaMenu" in item && item.megaMenu && (
-                    <div className="pb-4 pl-2">
+                    <div id={`mobile-submenu-${item.label}`} className="pb-4 pl-2">
                       <Link href={item.megaMenu.intro.href} className="mb-3 block text-sm font-semibold text-accent">
                         {item.megaMenu.intro.label}
                       </Link>
@@ -270,7 +311,7 @@ export function Header() {
               </Link>
             </div>
           </div>
-        </div>
+        </nav>
       )}
     </header>
   );

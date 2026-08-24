@@ -1,6 +1,8 @@
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 import catKuchnia from "@/assets/marketing/cat-kuchnia.jpg";
 import catSzafy from "@/assets/marketing/cat-szafy.jpg";
 import catSypialnia from "@/assets/marketing/cat-sypialnia.jpg";
@@ -37,36 +39,39 @@ export function FurnitureCategories() {
         />
 
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {categories.map((category) => (
-            <Link
-              key={category.href}
-              href={category.href}
-              className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden border border-line bg-ink"
-            >
-              <Image
-                src={category.image}
-                alt={category.isRealization ? `${category.title} na wymiar — realizacja EDMAT` : `${category.title} na wymiar`}
-                fill
-                sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
-              <span className="relative z-10 p-4 font-display text-lg text-white sm:p-5 sm:text-xl">
-                {category.title}
-              </span>
-            </Link>
+          {categories.map((category, index) => (
+            <Reveal key={category.href} delay={staggerDelay(index)}>
+              <Link
+                href={category.href}
+                className="group relative flex aspect-[4/5] flex-col justify-end overflow-hidden border border-line bg-ink"
+              >
+                <Image
+                  src={category.image}
+                  alt={category.isRealization ? `${category.title} na wymiar — realizacja EDMAT` : `${category.title} na wymiar`}
+                  fill
+                  sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
+                <span className="relative z-10 p-4 font-display text-lg text-white sm:p-5 sm:text-xl">
+                  {category.title}
+                </span>
+              </Link>
+            </Reveal>
           ))}
 
-          <Link
-            href="/meble-na-wymiar"
-            className="group flex aspect-[4/5] flex-col justify-between border border-line bg-white p-4 transition-colors hover:border-accent sm:p-5"
-          >
-            <span className="text-sm text-ink-soft">Zobacz</span>
-            <span className="inline-flex items-center gap-2 font-display text-lg text-ink group-hover:text-accent sm:text-xl">
-              Cała oferta mebli
-              <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
-            </span>
-          </Link>
+          <Reveal delay={staggerDelay(categories.length)}>
+            <Link
+              href="/meble-na-wymiar"
+              className="group flex aspect-[4/5] flex-col justify-between border border-line bg-white p-4 transition-colors hover:border-accent sm:p-5"
+            >
+              <span className="text-sm text-ink-soft">Zobacz</span>
+              <span className="inline-flex items-center gap-2 font-display text-lg text-ink group-hover:text-accent sm:text-xl">
+                Cała oferta mebli
+                <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+              </span>
+            </Link>
+          </Reveal>
         </div>
       </div>
     </section>

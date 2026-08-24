@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ProjectCard } from "@/components/ui/ProjectCard";
+import { Reveal } from "@/components/ui/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 import { CtaBand } from "@/components/sections/CtaBand";
 import { getPublishedProjects } from "@/lib/queries";
 import type { ProjectCategory } from "@/lib/supabase/database.types";
@@ -82,7 +84,9 @@ export default async function RealizacjePage({
           {projects.length > 0 ? (
             <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
               {projects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} priority={index < 3} />
+                <Reveal key={project.id} delay={staggerDelay(index)}>
+                  <ProjectCard project={project} priority={index < 3} />
+                </Reveal>
               ))}
             </div>
           ) : (

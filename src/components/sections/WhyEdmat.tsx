@@ -1,4 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 import { siteConfig } from "@/lib/site-config";
 
 const reasons = [
@@ -32,11 +34,11 @@ export function WhyEdmat() {
 
         <div className="mt-10 grid gap-px overflow-hidden border border-line bg-line sm:grid-cols-2">
           {reasons.map((reason, index) => (
-            <div key={reason.title} className="bg-white p-8">
+            <Reveal as="div" key={reason.title} delay={staggerDelay(index)} className="bg-white p-8">
               <span className="font-display text-sm text-accent">{String(index + 1).padStart(2, "0")}</span>
               <h3 className="mt-3 text-xl text-ink">{reason.title}</h3>
               <p className="mt-3 text-ink-soft">{reason.description}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

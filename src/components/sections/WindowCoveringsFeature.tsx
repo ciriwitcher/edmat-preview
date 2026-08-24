@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 import imgRolety from "@/assets/stock/rolety-zewnetrzne.jpg";
 import imgZaluzje from "@/assets/stock/zaluzje-aluminiowe.jpg";
 import imgMoskitiery from "@/assets/stock/moskitiery-okienne.jpg";
@@ -37,30 +39,31 @@ export function WindowCoveringsFeature() {
         />
 
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {products.map((product) => (
-            <Link
-              key={product.href}
-              href={product.href}
-              className="group flex flex-col border border-line bg-white transition-colors hover:border-accent"
-            >
-              <div className="relative h-40 w-full overflow-hidden">
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  fill
-                  sizes="(min-width: 768px) 33vw, 90vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-6">
-                <h3 className="font-display text-xl text-ink">{product.title}</h3>
-                <p className="mt-2 flex-1 text-sm text-ink-soft">{product.description}</p>
-                <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
-                  Zobacz ofertę
-                  <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
-                </span>
-              </div>
-            </Link>
+          {products.map((product, index) => (
+            <Reveal key={product.href} delay={staggerDelay(index)}>
+              <Link
+                href={product.href}
+                className="group flex h-full flex-col border border-line bg-white transition-colors hover:border-accent"
+              >
+                <div className="relative h-40 w-full overflow-hidden">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 90vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-display text-xl text-ink">{product.title}</h3>
+                  <p className="mt-2 flex-1 text-sm text-ink-soft">{product.description}</p>
+                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
+                    Zobacz ofertę
+                    <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">→</span>
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </div>

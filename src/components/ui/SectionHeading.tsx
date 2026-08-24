@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/ui/Reveal";
+
 export function SectionHeading({
   eyebrow,
   title,
@@ -16,7 +18,7 @@ export function SectionHeading({
   const eyebrowColor = tone === "paper" ? "text-accent" : "text-accent";
 
   return (
-    <div className={`flex max-w-2xl flex-col gap-4 ${alignClass}`}>
+    <Reveal className={`flex max-w-2xl flex-col gap-4 ${alignClass}`}>
       {eyebrow && (
         <span className={`text-xs font-semibold uppercase tracking-[0.2em] ${eyebrowColor}`}>
           {eyebrow}
@@ -24,6 +26,6 @@ export function SectionHeading({
       )}
       <h2 className="text-balance text-3xl sm:text-4xl">{title}</h2>
       {description && <p className={`text-balance text-lg leading-relaxed ${descColor}`}>{description}</p>}
-    </div>
+    </Reveal>
   );
 }

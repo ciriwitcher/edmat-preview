@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Reveal } from "@/components/ui/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 
 export type GalleryImage = {
   src: string;
@@ -49,9 +51,11 @@ export function ProjectGallery({ images }: { images: GalleryImage[] }) {
     <>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         {images.map((image, index) => (
-          <button
+          <Reveal
+            as="button"
             key={image.src}
             type="button"
+            delay={staggerDelay(index, 50, 300)}
             onClick={(event) => {
               triggerRef.current = event.currentTarget;
               setOpenIndex(index);
@@ -66,7 +70,7 @@ export function ProjectGallery({ images }: { images: GalleryImage[] }) {
               sizes="(min-width: 1024px) 22vw, 45vw"
               className="object-cover transition-transform duration-300 hover:scale-105"
             />
-          </button>
+          </Reveal>
         ))}
       </div>
 

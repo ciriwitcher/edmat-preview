@@ -1,4 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 
 const materials = [
   { name: "Laminat", detail: "Krajowych i zagranicznych producentów, w szerokiej gamie kolorów i struktur." },
@@ -20,11 +22,11 @@ export function Materials() {
         />
 
         <div className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
-          {materials.map((material) => (
-            <div key={material.name} className="border-t border-line pt-4">
+          {materials.map((material, index) => (
+            <Reveal as="div" key={material.name} delay={staggerDelay(index, 60, 300)} className="border-t border-line pt-4">
               <h3 className="text-base font-semibold text-ink">{material.name}</h3>
               <p className="mt-1.5 text-sm text-ink-soft">{material.detail}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

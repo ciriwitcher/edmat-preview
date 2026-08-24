@@ -1,4 +1,6 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Reveal } from "@/components/ui/Reveal";
+import { staggerDelay } from "@/lib/stagger";
 import { testimonials } from "@/lib/content/testimonials";
 
 export function Testimonials() {
@@ -8,8 +10,8 @@ export function Testimonials() {
         <SectionHeading eyebrow="Opinie klientów" title="Co mówią o nas klienci" />
 
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <figure key={testimonial.author} className="border border-line bg-white p-8">
+          {testimonials.map((testimonial, index) => (
+            <Reveal as="figure" key={testimonial.author} delay={staggerDelay(index)} className="border border-line bg-white p-8">
               <blockquote className="font-display text-xl leading-snug text-ink sm:text-2xl">
                 „{testimonial.quote}”
               </blockquote>
@@ -18,7 +20,7 @@ export function Testimonials() {
                 <span className="mx-1.5">·</span>
                 {testimonial.context}
               </figcaption>
-            </figure>
+            </Reveal>
           ))}
         </div>
         <p className="mt-6 text-xs text-ink-faint">Opinie z archiwum EDMAT.</p>

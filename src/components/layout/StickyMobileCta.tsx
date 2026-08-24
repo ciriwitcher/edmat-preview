@@ -2,7 +2,10 @@ import { siteConfig } from "@/lib/site-config";
 
 export function StickyMobileCta() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 flex border-t border-line bg-paper/95 backdrop-blur lg:hidden">
+    <div
+      id="sticky-mobile-cta"
+      className="fixed inset-x-0 bottom-0 z-40 flex border-t border-line bg-paper/95 backdrop-blur lg:hidden"
+    >
       <a
         href={siteConfig.contact.phoneHref}
         className="flex flex-1 items-center justify-center gap-2 border-r border-line py-3.5 text-sm font-medium text-ink"
