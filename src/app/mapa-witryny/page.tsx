@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
+import { getPublishedProjects, getPublishedPosts, getActivePromotions, getArchivedPromotions } from "@/lib/queries";
 
 export const metadata: Metadata = {
   title: "Mapa witryny",
@@ -66,13 +67,41 @@ const sections: { title: string; links: { label: string; href: string }[] }[] = 
       { label: "Żaluzje pionowe", href: "/zaluzje/pionowe" },
     ],
   },
-  {
-    title: "Realizacje",
-    links: [{ label: "Wszystkie realizacje", href: "/realizacje" }],
-  },
 ];
 
-export default function MapaWitrynyPage() {
+export default async function MapaWitrynyPage() {
+  const [projects, posts, activePromotions, archivedPromotions] = await Promise.all([
+    getPublishedProjects(),
+    getPublishedPosts(),
+    getActivePromotions(),
+    getArchivedPromotions(),
+  ]);
+
+  const dynamicSections = [
+    {
+      title: "Realizacje",
+      links: [
+        { label: "Wszystkie realizacje", href: "/realizacje" },
+        ...projects.map((project) => ({ label: project.title, href: `/realizacje/${project.slug}` })),
+      ],
+    },
+    {
+      title: "Aktualności",
+      links: [
+        { label: "Wszystkie aktualności", href: "/aktualnosci" },
+        ...posts.map((post) => ({ label: post.title, href: `/aktualnosci/${post.slug}` })),
+      ],
+    },
+    {
+      title: "Promocje",
+      links: [
+        { label: "Wszystkie promocje", href: "/promocje" },
+        ...activePromotions.map((promo) => ({ label: promo.title, href: `/promocje/${promo.slug}` })),
+        ...archivedPromotions.map((promo) => ({ label: `${promo.title} (archiwalna)`, href: `/promocje/${promo.slug}` })),
+      ],
+    },
+  ];
+
   return (
     <>
       <div className="border-b border-line bg-paper py-6">
@@ -87,7 +116,7 @@ export default function MapaWitrynyPage() {
           <p className="mt-4 max-w-2xl text-ink-soft">Pełna lista podstron serwisu EDMAT.</p>
 
           <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-            {sections.map((section) => (
+            {[...sections, ...dynamicSections].map((section) => (
               <div key={section.title}>
                 <h2 className="text-lg font-semibold text-ink">{section.title}</h2>
                 <ul className="mt-3 space-y-2">

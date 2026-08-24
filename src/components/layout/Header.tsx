@@ -53,7 +53,11 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/85">
+    <header className="sticky top-0 z-50 border-b border-line">
+      {/* backdrop-blur żyje na tym wewnętrznym div, nie na <header> — filter/backdrop-filter na
+          przodku tworzy nowy containing block dla position:fixed potomków (spec CSS), co na
+          Safari/iOS scopowałoby #mobile-nav do 80px-owego <header>, zamiast do viewportu. */}
+      <div className="bg-paper/95 backdrop-blur supports-[backdrop-filter]:bg-paper/85">
       <div className="container-edmat flex h-20 items-center justify-between gap-6">
         <Logo />
 
@@ -187,6 +191,7 @@ export function Header() {
             )}
           </button>
         </div>
+      </div>
       </div>
 
       {mobileOpen && (

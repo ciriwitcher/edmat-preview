@@ -63,8 +63,8 @@ export default function OFirmiePage() {
               małopolskim.
             </p>
             <p className="mt-4 leading-relaxed text-ink-soft">
-              Przez {yearsInBusiness}+ lat działalności zrealizowaliśmy setki projektów mebli na wymiar — od
-              pojedynczych szaf po kompleksowe zabudowy kuchni i biur.
+              Przez {yearsInBusiness}+ lat działalności zrealizowaliśmy meble na wymiar w wielu domach i biurach
+              regionu — od pojedynczych szaf po kompleksowe zabudowy kuchni i biur.
             </p>
           </div>
         </div>
@@ -74,9 +74,8 @@ export default function OFirmiePage() {
         <div className="container-edmat">
           <h2 className="text-2xl sm:text-3xl">Jak pracujemy</h2>
           <p className="mt-4 max-w-2xl leading-relaxed text-ink-soft">
-            Pomiar, projekt komputerowy, produkcję i montaż wykonujemy sami, bez przekazywania zlecenia
-            podwykonawcom. Nasz zespół zajmuje się każdym etapem realizacji — od pierwszej konsultacji po montaż
-            gotowych mebli w Państwa domu.
+            EDMAT prowadzi klienta od pomiaru i projektu komputerowego, przez produkcję, aż po montaż gotowych
+            mebli w Państwa domu — na każdym etapie w kontakcie z tym samym zespołem.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link

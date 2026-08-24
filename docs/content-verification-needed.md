@@ -73,14 +73,15 @@ Tylko jedna realizacja ma nazwę sugerującą lokalizację („Meble kuchenne w 
 
 Część oryginalnych zdjęć realizacji zawiera nałożony przez telefon napis w rogu (np. „SHOT ON MI 9T AI TRIPLE CAMERA”). Zdjęcia pozostały autentyczne i nie zostały zastąpione, zgodnie z priorytetem „prawdziwe zdjęcia ważniejsze niż estetyka znaku aparatu”. Rekomendacja: klient może dostarczyć zdjęcia bez nakładek aparatu przy okazji kolejnych sesji fotograficznych, a administrator może je podmienić samodzielnie przez panel `/admin`.
 
-## 12. Opinie klientów — ZNALEZIONO DWIE PRAWDZIWE, ARCHIWALNE
+## 12. Opinie klientów — ZNALEZIONO TRZY PRAWDZIWE, ARCHIWALNE
 
-W treści starych wpisów „Aktualności” (nie w dedykowanej sekcji opinii) znaleziono dwa prawdziwe cytaty klientów, przypisane z imienia i miejscowości:
+Na oficjalnych podstronach www.edmat.pl (sekcje opinii wbudowane w treść stron, nie osobny moduł) znaleziono trzy prawdziwe cytaty klientów, przypisane z imienia i miejscowości:
 
-- Marek i Joanna z Jedlicza (wpis „Kolejne inwestycje zakończone”, meble kuchenne),
-- Józef z Krosna (wpis „Otwarcie strony firmowej”, rolety zewnętrzne i moskitiery).
+- Marek i Joanna z Jedlicza (strona „O firmie”, opinia z 12 września 2013, meble kuchenne),
+- Józef z Krosna (strona FAQ, opinia z 22 czerwca 2014, rolety zewnętrzne i moskitiery),
+- Tomek i Ola z Jasła (strona „Kontakt”, opinia z 22 marca 2014, meble na wymiar).
 
-**Decyzja przyjęta:** oba cytaty zostały wykorzystane na nowej stronie (sekcja opinii na stronie głównej / O firmie), z tą samą atrybucją (imię + miejscowość, bez nazwiska — tak jak w oryginale). Wpisy te pochodzą z bardzo starych aktualności (najprawdopodobniej ok. 2013–2014 roku, jeden wpis odwołuje się do daty „12 września 2013”), dlatego **nowa strona nie prezentuje ich jako świeżych/aktualnych opinii** — nie dodano żadnej nowej daty ani sugestii aktualności, opisano je neutralnie jako opinie z archiwum firmy. Nie wymyślono żadnych dodatkowych opinii ponad te dwie potwierdzone.
+**Decyzja przyjęta:** wszystkie trzy cytaty zostały wykorzystane na nowej stronie (sekcja opinii na stronie głównej / O firmie) w pełnym, oryginalnym brzmieniu, z tą samą atrybucją (imię + miejscowość, bez nazwiska — tak jak w oryginale). Wpisy pochodzą z lat 2013–2014, dlatego **nowa strona nie prezentuje ich jako świeżych/aktualnych opinii** — opisano je neutralnie jako opinie z archiwum firmy („Opinie z archiwum EDMAT”). Nie wymyślono żadnych dodatkowych opinii ponad te trzy potwierdzone.
 
 **Do potwierdzenia przez klienta:** czy można nadal publicznie prezentować te opinie (dane osobowe, nawet szczątkowe, wymagają zgody), oraz czy klient posiada nowsze, chętnie udostępnione opinie (np. z Google Moja Firma) do dodania w ich miejsce lub obok nich.
 

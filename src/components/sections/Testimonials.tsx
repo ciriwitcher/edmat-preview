@@ -7,7 +7,7 @@ export function Testimonials() {
       <div className="container-edmat">
         <SectionHeading eyebrow="Opinie klientów" title="Co mówią o nas klienci" />
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
             <figure key={testimonial.author} className="border border-line bg-white p-8">
               <blockquote className="font-display text-xl leading-snug text-ink sm:text-2xl">

@@ -17,7 +17,7 @@ export const faqGroups: FaqGroup[] = [
       {
         question: "Jakie doświadczenie ma EDMAT w produkcji mebli na wymiar?",
         answer:
-          "Zajmujemy się projektowaniem, produkcją i montażem mebli na wymiar od 1992 roku. W tym czasie zrealizowaliśmy setki projektów mebli kuchennych, szaf i zabudów dla klientów indywidualnych i firm z Krosna, Rzeszowa oraz całego Podkarpacia.",
+          "Zajmujemy się projektowaniem, produkcją i montażem mebli na wymiar od 1992 roku — realizujemy meble kuchenne, szafy i zabudowy dla klientów indywidualnych i firm z Krosna, Rzeszowa oraz całego Podkarpacia.",
       },
       {
         question: "Jaki obszar obejmują Państwa usługi?",
