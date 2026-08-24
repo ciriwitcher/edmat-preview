@@ -1,25 +1,28 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { PatternSwatch } from "@/components/ui/PatternSwatch";
+import imgRolety from "@/assets/stock/rolety-zewnetrzne.jpg";
+import imgZaluzje from "@/assets/stock/zaluzje-aluminiowe.jpg";
+import imgMoskitiery from "@/assets/stock/moskitiery-okienne.jpg";
 
 const products = [
   {
     title: "Rolety",
     description: "Zewnętrzne, dzień/noc, rzymskie, dachowe, kasetowe i wolnowiszące.",
     href: "/rolety",
-    variant: "roller" as const,
+    image: imgRolety,
   },
   {
     title: "Żaluzje",
     description: "Aluminiowe, drewniane, plisowane i pionowe — do każdego typu okna.",
     href: "/zaluzje",
-    variant: "slats-horizontal" as const,
+    image: imgZaluzje,
   },
   {
     title: "Moskitiery",
     description: "Okienne, drzwiowe, ramkowe i rolowane, montowane bez ingerencji w ramę okna.",
     href: "/moskitiery",
-    variant: "mesh" as const,
+    image: imgMoskitiery,
   },
 ];
 
@@ -40,7 +43,15 @@ export function WindowCoveringsFeature() {
               href={product.href}
               className="group flex flex-col border border-line bg-white transition-colors hover:border-accent"
             >
-              <PatternSwatch variant={product.variant} className="h-40 w-full" />
+              <div className="relative h-40 w-full overflow-hidden">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  sizes="(min-width: 768px) 33vw, 90vw"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
               <div className="flex flex-1 flex-col p-6">
                 <h3 className="font-display text-xl text-ink">{product.title}</h3>
                 <p className="mt-2 flex-1 text-sm text-ink-soft">{product.description}</p>

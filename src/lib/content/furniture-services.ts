@@ -2,6 +2,11 @@ import type { ServicePageContent } from "@/lib/content/types";
 import catKuchnia from "@/assets/marketing/cat-kuchnia.jpg";
 import catSzafy from "@/assets/marketing/cat-szafy.jpg";
 import catSypialnia from "@/assets/marketing/cat-sypialnia.jpg";
+import catBiuro from "@/assets/marketing/cat-biuro.jpg";
+import stockLazienka from "@/assets/stock/lazienkowe.jpg";
+import stockPrzedpokoj from "@/assets/stock/przedpokoj.jpg";
+import stockSalon from "@/assets/stock/salon.jpg";
+import stockProjektowanie from "@/assets/stock/projektowanie.jpg";
 
 const parent = { parentLabel: "Meble na wymiar", parentHref: "/meble-na-wymiar" };
 
@@ -165,7 +170,8 @@ export const biuroweContent: ServicePageContent = {
   metaDescription: "Meble biurowe na wymiar w Krośnie — zabudowa biur, stanowisk obsługi klienta, biurek i szaf.",
   intro:
     "Projektujemy i wykonujemy meble do przestrzeni biurowych — od pojedynczych biurek i szaf, po pełną zabudowę recepcji i stanowisk obsługi klienta.",
-  heroPattern: "slats-vertical",
+  heroImage: catBiuro,
+  heroImageAlt: "Zabudowa biura na wymiar, realizacja EDMAT",
   applications: [
     "Stanowiska obsługi klienta i recepcje",
     "Biurka i szafy do biur",
@@ -199,7 +205,8 @@ export const lazienkoweContent: ServicePageContent = {
   metaDescription: "Meble łazienkowe na wymiar w Krośnie — szafki podumywalkowe i wiszące dopasowane do wymiarów łazienki.",
   intro:
     "Meble łazienkowe projektujemy pod konkretny metraż i układ instalacji — tak, aby maksymalnie wykorzystać dostępną przestrzeń, często ograniczoną w tego typu pomieszczeniach.",
-  heroPattern: "slats-horizontal",
+  heroImage: stockLazienka,
+  heroImageAlt: "Meble łazienkowe na wymiar w nowoczesnej łazience",
   applications: ["Szafki podumywalkowe", "Szafki wiszące i słupki łazienkowe", "Zabudowa pralki i suszarki"],
   variants: [
     { title: "Szafka podumywalkowa", description: "Dopasowana do wybranej umywalki i syfonu, z szufladami lub drzwiami." },
@@ -228,7 +235,8 @@ export const przedpokojContent: ServicePageContent = {
   metaDescription: "Meble do przedpokoju na wymiar w Krośnie — szafy, wieszaki i zabudowy dopasowane do wąskich korytarzy.",
   intro:
     "Przedpokój to zwykle najtrudniejsze wymiarowo pomieszczenie w mieszkaniu — projektujemy meble, które wykorzystują każdy dostępny centymetr, nie ograniczając komunikacji.",
-  heroPattern: "slats-vertical",
+  heroImage: stockPrzedpokoj,
+  heroImageAlt: "Meble do przedpokoju na wymiar w nowoczesnym korytarzu",
   applications: ["Szafy wnękowe w wąskich korytarzach", "Zabudowa z miejscem na obuwie i odzież wierzchnią", "Wieszaki i półki na wymiar"],
   variants: [
     { title: "Szafa przesuwna", description: "Drzwi przesuwne nie wymagają przestrzeni na otwarcie skrzydła — sprawdzają się w wąskich korytarzach." },
@@ -257,7 +265,8 @@ export const salonContent: ServicePageContent = {
   metaDescription: "Meble do salonu na wymiar w Krośnie — zabudowy pod telewizor, regały i szafki RTV dopasowane do wnętrza.",
   intro:
     "Meble do salonu — zabudowy pod telewizor, regały i szafki RTV — projektujemy pod wymiary ściany i sposób organizacji przestrzeni dziennej.",
-  heroPattern: "slats-horizontal",
+  heroImage: stockSalon,
+  heroImageAlt: "Meble do salonu na wymiar w nowoczesnym wnętrzu",
   applications: ["Zabudowy pod telewizor", "Regały na wymiar", "Szafki RTV i witryny"],
   variants: [
     { title: "Zabudowa ścienna pod TV", description: "Łączy szafki, otwarte półki i miejsce na sprzęt RTV w jednej kompozycji." },
@@ -286,7 +295,8 @@ export const projektowanieContent: ServicePageContent = {
   metaDescription: "Projektowanie mebli na wymiar w Krośnie — bezpłatny pomiar, projekt komputerowy i wizualizacja 3D.",
   intro:
     "Projektowanie wnętrz to punkt wyjścia każdej realizacji EDMAT. Mierzymy pomieszczenie razem z Państwem, a następnie wspólnie ustalamy układ mebli w programie komputerowym, tak aby ostateczny efekt spełniał oczekiwania jeszcze przed rozpoczęciem produkcji.",
-  heroPattern: "pleated",
+  heroImage: stockProjektowanie,
+  heroImageAlt: "Projektowanie mebli na wymiar — praca nad projektem technicznym",
   applications: [
     "Projekt kuchni, szaf i zabudów na wymiar",
     "Wizualizacja 3D przed rozpoczęciem produkcji",
