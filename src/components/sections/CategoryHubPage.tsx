@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -44,7 +45,19 @@ export async function CategoryHubPage({ content }: { content: CategoryHubContent
                 href={item.href}
                 className="group flex flex-col border border-line bg-white transition-colors hover:border-accent"
               >
-                {item.pattern && <PatternSwatch variant={item.pattern} className="h-32 w-full" />}
+                {item.image ? (
+                  <div className="relative h-36 w-full overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                ) : (
+                  item.pattern && <PatternSwatch variant={item.pattern} className="h-32 w-full" />
+                )}
                 <div className="flex flex-1 flex-col p-5">
                   <h2 className="font-display text-lg text-ink">{item.title}</h2>
                   <p className="mt-2 flex-1 text-sm text-ink-soft">{item.description}</p>

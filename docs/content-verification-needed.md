@@ -98,6 +98,18 @@ Po pierwszym wdrożeniu odkryto, że stare strony kategorii mebli (`/meble-na-wy
 
 Katalogi `/images/galeria/meble_do_salonu/`, `/images/galeria/meble_lazienkowe/` zwracają 403 (folder istnieje), ale żadna aktualnie renderowana strona do nich nie linkuje, więc nie udało się ustalić nazw plików — te dwie kategorie (oraz „meble do przedpokoju") nadal nie mają autentycznych zdjęć EDMAT. Jeżeli klient ma dostęp do panelu starej strony (Joomla) lub do oryginalnych plików, warto poprosić o ręczne przesłanie zdjęć tych realizacji przez `/admin`.
 
+## 15. Zdjęcia ilustracyjne (stockowe) na stronach produktowych osłon okiennych i 3 kategoriach mebli
+
+Dla podstron produktowych rolet, żaluzji i moskitier (wszystkie 14 podstron + 3 strony kategorii) oraz dla trzech kategorii mebli bez własnych zdjęć klienta („Meble do salonu", „Meble łazienkowe", „Meble do przedpokoju") nie istnieją żadne autentyczne zdjęcia EDMAT — ani w oficjalnym serwisie, ani w dodatkowej galerii opisanej w punkcie 14. Właściciel projektu potwierdził (2026-08-24), że w tej sytuacji dopuszczalne jest użycie dobrze dobranych zdjęć ilustracyjnych spoza materiałów klienta.
+
+Użyto darmowych, licencjonowanych do użytku komercyjnego zdjęć z Pexels.com (bez wymogu podania autora), dobranych tak, aby wiarygodnie przedstawiały dany typ produktu (np. żaluzje aluminiowe, roleta zewnętrzna, moskitiera okienna) lub charakter pomieszczenia (salon, łazienka, przedpokój). Zgodnie z zasadami projektu:
+
+- **Żadne z tych zdjęć nie jest i nie będzie prezentowane jako realizacja EDMAT** — teksty alternatywne (`alt`) opisują wyłącznie typ produktu/pomieszczenia, nigdy nie sugerują, że to konkretna instalacja czy projekt klienta.
+- Sekcja realizacji (`/realizacje`) oraz wszystkie zdjęcia w galeriach realizacji nadal pochodzą **wyłącznie** z autentycznych materiałów EDMAT — ta zasada nie została naruszona.
+- Pliki źródłowe: `src/assets/stock/*.jpg`.
+
+**Do rozważenia przez klienta:** jeśli EDMAT posiada własne zdjęcia produktowe rolet/żaluzji/moskitier (np. od dostawcy Anwis, z materiałów marketingowych) lub zdjęcia realizacji mebli do salonu/łazienki/przedpokoju, warto podmienić te zdjęcia ilustracyjne na prawdziwe poprzez edycję plików w `src/assets/stock/` (strony produktowe są kontrolowane przez kod, nie przez `/admin`).
+
 ## Podsumowanie działań
 
 | # | Kwestia | Status w nowej stronie |

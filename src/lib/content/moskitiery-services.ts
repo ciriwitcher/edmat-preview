@@ -1,4 +1,6 @@
 import type { ServicePageContent } from "@/lib/content/types";
+import imgOkienne from "@/assets/stock/moskitiery-okienne.jpg";
+import imgRamkowe from "@/assets/stock/moskitiery-ramkowe.jpg";
 
 const parent = { parentLabel: "Moskitiery", parentHref: "/moskitiery" };
 
@@ -36,7 +38,8 @@ export const okienneContent: ServicePageContent = {
   metaDescription: "Moskitiery okienne marki Anwis w Krośnie — montaż bez ingerencji w ramę okna, obrotowe zaczepy.",
   intro:
     "Moskitiery okienne dopasowywane są do dowolnego otworu okiennego przy pomocy obrotowych, nieinwazyjnych zaczepów — montaż nie wymaga wiercenia ani trwałej ingerencji w ramę okna.",
-  heroPattern: "mesh",
+  heroImage: imgOkienne,
+  heroImageAlt: "Moskitiera okienna zamontowana na oknie domu jednorodzinnego",
   applications: ["Okna PVC i drewniane", "Mieszkania i domy jednorodzinne"],
   variants: [
     { title: "Rama aluminiowa", description: "Lekka i trwała konstrukcja, odporna na warunki atmosferyczne." },
@@ -60,7 +63,8 @@ export const drzwioweContent: ServicePageContent = {
   metaDescription: "Moskitiery drzwiowe marki Anwis w Krośnie — do drzwi balkonowych i tarasowych, konstrukcja aluminiowa.",
   intro:
     "Moskitiery drzwiowe projektowane są z myślą o dużych otworach — drzwiach balkonowych i tarasowych — zapewniając ochronę przed owadami bez ograniczania swobodnego przejścia.",
-  heroPattern: "mesh",
+  heroImage: imgOkienne,
+  heroImageAlt: "Moskitiera na drzwiach balkonowych",
   applications: ["Drzwi balkonowe", "Drzwi tarasowe", "Wejścia do domów jednorodzinnych"],
   variants: [
     { title: "Skrzydło zawiasowe", description: "Otwierane jak typowe drzwi, z samodomykaczem." },
@@ -83,7 +87,8 @@ export const ramkoweContent: ServicePageContent = {
   metaDescription: "Moskitiery ramkowe marki Anwis w Krośnie — mocowanie do ramy okna lub drzwi, uszczelka zewnętrzna.",
   intro:
     "Moskitiery ramkowe montowane są bezpośrednio do ramy okna lub drzwi za pomocą obrotowych zaczepów, a specjalna uszczelka zewnętrzna dodatkowo domyka szczeliny wzdłuż krawędzi.",
-  heroPattern: "mesh",
+  heroImage: imgRamkowe,
+  heroImageAlt: "Moskitiera ramkowa zbliżenie na siatkę",
   applications: ["Okna i drzwi balkonowe", "Miejsca wymagające szczelnego domknięcia krawędzi"],
   variants: [
     { title: "Z uszczelką zewnętrzną", description: "Dodatkowo ogranicza szczeliny między moskitierą a ramą okna." },
@@ -106,7 +111,8 @@ export const rolowaneContent: ServicePageContent = {
   metaDescription: "Moskitiery rolowane marki Anwis w Krośnie — wersja pozioma i pionowa z mechanizmem sprężynowym.",
   intro:
     "Moskitiery rolowane dostępne są w wersji poziomej i pionowej, z mechanizmem sprężynowym pozwalającym płynnie zwijać siatkę, gdy ochrona przed owadami nie jest akurat potrzebna.",
-  heroPattern: "mesh",
+  heroImage: imgRamkowe,
+  heroImageAlt: "Moskitiera rolowana na oknie",
   applications: ["Okna i drzwi balkonowe", "Miejsca, gdzie moskitiera ma być używana tylko okazjonalnie"],
   variants: [
     { title: "Wersja pozioma", description: "Siatka rozwijana w poziomie, np. w drzwiach balkonowych." },

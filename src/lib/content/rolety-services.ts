@@ -1,4 +1,10 @@
 import type { ServicePageContent } from "@/lib/content/types";
+import imgZewnetrzne from "@/assets/stock/rolety-zewnetrzne.jpg";
+import imgDzienNoc from "@/assets/stock/rolety-dzien-noc.jpg";
+import imgRzymskie from "@/assets/stock/rolety-rzymskie.jpg";
+import imgDachowe from "@/assets/stock/rolety-dachowe.jpg";
+import imgKasetowe from "@/assets/stock/rolety-kasetowe.jpg";
+import imgWolnowiszace from "@/assets/stock/rolety-wolnowiszace.jpg";
 
 const parent = { parentLabel: "Rolety", parentHref: "/rolety" };
 
@@ -44,6 +50,8 @@ export const zewnetrzneContent: ServicePageContent = {
   metaDescription: "Rolety zewnętrzne marki Anwis w Krośnie — ochrona przed słońcem, ciepłem i włamaniem. Gwarancja 36 miesięcy.",
   intro:
     "Rolety zewnętrzne montowane są na elewacji budynku i chronią wnętrze przed nasłonecznieniem, nadmiernym ciepłem oraz — dzięki solidnej konstrukcji — dodatkowo utrudniają włamanie i ograniczają straty ciepła zimą.",
+  heroImage: imgZewnetrzne,
+  heroImageAlt: "Rolety zewnętrzne montowane na elewacji budynku",
   heroPattern: "roller",
   applications: ["Domy jednorodzinne", "Mieszkania na parterze i wyższych kondygnacjach", "Okna narażone na mocne nasłonecznienie"],
   variants: [
@@ -82,6 +90,8 @@ export const dzienNocContent: ServicePageContent = {
   metaDescription: "Rolety dzień/noc marki Anwis w Krośnie — naprzemienne pasy materiału regulujące dopływ światła.",
   intro:
     "Rolety dzień/noc to nowoczesne osłony łączące funkcje rolety, żaluzji i zasłony — naprzemienne pasy materiału pozwalają płynnie regulować ilość wpuszczanego światła, od pełnego zaciemnienia po delikatne rozproszenie.",
+  heroImage: imgDzienNoc,
+  heroImageAlt: "Roleta dzień/noc na oknie w nowoczesnym wnętrzu",
   heroPattern: "roller",
   applications: ["Salony i sypialnie", "Pomieszczenia biurowe", "Okna wymagające regulacji światła w ciągu dnia"],
   variants: [
@@ -105,6 +115,8 @@ export const rzymskieContent: ServicePageContent = {
   metaDescription: "Rolety rzymskie z naturalnego bambusa marki Anwis w Krośnie — różne kolory i sploty.",
   intro:
     "Rolety rzymskie wykonane są z naturalnego bambusa w różnych kolorach i splotach — rozpraszają światło dzienne, jednocześnie ograniczając nasłonecznienie wnętrza, i wnoszą do pomieszczenia naturalny, ciepły charakter.",
+  heroImage: imgRzymskie,
+  heroImageAlt: "Roleta materiałowa na oknie w jasnym wnętrzu",
   heroPattern: "roller",
   applications: ["Salony i jadalnie w stylu naturalnym", "Kuchnie", "Wnętrza z drewnianymi elementami wykończenia"],
   variants: [
@@ -128,6 +140,8 @@ export const dachoweContent: ServicePageContent = {
   metaDescription: "Rolety dachowe marki Anwis w Krośnie — do okien dachowych drewnianych i PVC, mechanizm samoblokujący.",
   intro:
     "Rolety dachowe przeznaczone są do okien połaciowych — zarówno drewnianych, jak i PVC — i wyposażone są w mechanizm samoblokujący, pozwalający ustawić roletę w dowolnej, dogodnej pozycji.",
+  heroImage: imgDachowe,
+  heroImageAlt: "Okno dachowe w poddaszu użytkowym",
   heroPattern: "roller",
   applications: ["Poddasza użytkowe", "Okna połaciowe w domach jednorodzinnych"],
   variants: [
@@ -151,6 +165,8 @@ export const kasetoweContent: ServicePageContent = {
   metaDescription: "Rolety kasetowe marki Anwis w Krośnie — prowadnice boczne i kaseta ograniczające przenikanie światła.",
   intro:
     "Rolety kasetowe wyposażone są w boczne prowadnice oraz kasetę osłaniającą zwinięty materiał, co ogranicza przenikanie światła po bokach i zapewnia płynne, ciche działanie mechanizmu.",
+  heroImage: imgKasetowe,
+  heroImageAlt: "Roleta kasetowa zamontowana na oknie",
   heroPattern: "roller",
   applications: ["Okna, w których zależy na ograniczeniu światła bocznego", "Sypialnie i pokoje dziecięce"],
   variants: [
@@ -174,6 +190,8 @@ export const wolnowiszaceContent: ServicePageContent = {
   metaDescription: "Rolety wolnowiszące marki Anwis w Krośnie — montaż na oknie, ścianie lub suficie, mechanizm łańcuszkowy lub elektryczny.",
   intro:
     "Rolety wolnowiszące to uniwersalne rozwiązanie, które można zamontować na oknie, ścianie lub suficie — sprawdzają się tam, gdzie inne typy rolet nie pasują konstrukcyjnie do okna.",
+  heroImage: imgWolnowiszace,
+  heroImageAlt: "Roleta wolnowisząca zamontowana na oknie",
   heroPattern: "roller",
   applications: ["Nietypowe okna i przeszklenia", "Montaż sufitowy nad dużymi przeszkleniami", "Drzwi balkonowe i tarasowe"],
   variants: [

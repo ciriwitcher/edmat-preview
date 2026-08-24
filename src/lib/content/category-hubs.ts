@@ -1,10 +1,24 @@
+import type { StaticImageData } from "next/image";
 import type { PatternVariant } from "@/lib/content/types";
+import imgZewnetrzne from "@/assets/stock/rolety-zewnetrzne.jpg";
+import imgDzienNoc from "@/assets/stock/rolety-dzien-noc.jpg";
+import imgRzymskie from "@/assets/stock/rolety-rzymskie.jpg";
+import imgDachowe from "@/assets/stock/rolety-dachowe.jpg";
+import imgKasetowe from "@/assets/stock/rolety-kasetowe.jpg";
+import imgWolnowiszace from "@/assets/stock/rolety-wolnowiszace.jpg";
+import imgAluminiowe from "@/assets/stock/zaluzje-aluminiowe.jpg";
+import imgDrewniane from "@/assets/stock/zaluzje-drewniane.jpg";
+import imgPlisowane from "@/assets/stock/zaluzje-plisowane.jpg";
+import imgPionowe from "@/assets/stock/zaluzje-pionowe.jpg";
+import imgOkienne from "@/assets/stock/moskitiery-okienne.jpg";
+import imgRamkowe from "@/assets/stock/moskitiery-ramkowe.jpg";
 
 export type CategoryHubItem = {
   title: string;
   description: string;
   href: string;
   pattern?: PatternVariant;
+  image?: StaticImageData;
 };
 
 export type CategoryHubContent = {
@@ -62,12 +76,12 @@ export const roletyHub: CategoryHubContent = {
   intro:
     "Rolety to eleganckie i praktyczne osłony okienne, wykonane z wysokiej jakości materiałów marki Anwis — skutecznie chronią przed nasłonecznieniem i są łatwe w codziennym użytkowaniu.",
   items: [
-    { title: "Rolety zewnętrzne", description: "Ochrona przed słońcem, ciepłem i włamaniem. Gwarancja 36 miesięcy.", href: "/rolety/zewnetrzne", pattern: "roller" },
-    { title: "Rolety dzień / noc", description: "Naprzemienne pasy materiału regulujące dopływ światła.", href: "/rolety/dzien-noc", pattern: "roller" },
-    { title: "Rolety rzymskie", description: "Naturalny bambus, różne kolory i sploty.", href: "/rolety/rzymskie", pattern: "roller" },
-    { title: "Rolety dachowe", description: "Do okien połaciowych, mechanizm samoblokujący.", href: "/rolety/dachowe", pattern: "roller" },
-    { title: "Rolety kasetowe", description: "Boczne prowadnice ograniczające przenikanie światła.", href: "/rolety/kasetowe", pattern: "roller" },
-    { title: "Rolety wolnowiszące", description: "Montaż na oknie, ścianie lub suficie.", href: "/rolety/wolnowiszace", pattern: "roller" },
+    { title: "Rolety zewnętrzne", description: "Ochrona przed słońcem, ciepłem i włamaniem. Gwarancja 36 miesięcy.", href: "/rolety/zewnetrzne", image: imgZewnetrzne },
+    { title: "Rolety dzień / noc", description: "Naprzemienne pasy materiału regulujące dopływ światła.", href: "/rolety/dzien-noc", image: imgDzienNoc },
+    { title: "Rolety rzymskie", description: "Naturalny bambus, różne kolory i sploty.", href: "/rolety/rzymskie", image: imgRzymskie },
+    { title: "Rolety dachowe", description: "Do okien połaciowych, mechanizm samoblokujący.", href: "/rolety/dachowe", image: imgDachowe },
+    { title: "Rolety kasetowe", description: "Boczne prowadnice ograniczające przenikanie światła.", href: "/rolety/kasetowe", image: imgKasetowe },
+    { title: "Rolety wolnowiszące", description: "Montaż na oknie, ścianie lub suficie.", href: "/rolety/wolnowiszace", image: imgWolnowiszace },
   ],
   faq: [
     {
@@ -89,10 +103,10 @@ export const zaluzjeHub: CategoryHubContent = {
   intro:
     "Żaluzje to uniwersalne osłony okienne pozwalające płynnie regulować kąt padania światła i zachować prywatność — dostępne w wersji aluminiowej, drewnianej, plisowanej i pionowej.",
   items: [
-    { title: "Żaluzje aluminiowe", description: "Lamele 16, 25 i 50 mm — prosta konstrukcja, długa żywotność.", href: "/zaluzje/aluminiowe", pattern: "slats-horizontal" },
-    { title: "Żaluzje drewniane", description: "Egzotyczne drewno, ciepły charakter wnętrza.", href: "/zaluzje/drewniane", pattern: "slats-horizontal" },
-    { title: "Żaluzje plisowane", description: "Do okien nietypowych, skośnych i trudno dostępnych.", href: "/zaluzje/plisowane", pattern: "pleated" },
-    { title: "Żaluzje pionowe", description: "Do dużych przeszkleń i podziału pomieszczeń.", href: "/zaluzje/pionowe", pattern: "slats-vertical" },
+    { title: "Żaluzje aluminiowe", description: "Lamele 16, 25 i 50 mm — prosta konstrukcja, długa żywotność.", href: "/zaluzje/aluminiowe", image: imgAluminiowe },
+    { title: "Żaluzje drewniane", description: "Egzotyczne drewno, ciepły charakter wnętrza.", href: "/zaluzje/drewniane", image: imgDrewniane },
+    { title: "Żaluzje plisowane", description: "Do okien nietypowych, skośnych i trudno dostępnych.", href: "/zaluzje/plisowane", image: imgPlisowane },
+    { title: "Żaluzje pionowe", description: "Do dużych przeszkleń i podziału pomieszczeń.", href: "/zaluzje/pionowe", image: imgPionowe },
   ],
   faq: [
     {
@@ -111,10 +125,10 @@ export const moskitieryHub: CategoryHubContent = {
   intro:
     "Moskitiery to ekologiczny i w pełni skuteczny sposób ochrony przed owadami, pyłkami i kurzem — montowane bez ingerencji w ramę okna czy drzwi, nie ograniczają widoczności.",
   items: [
-    { title: "Moskitiery okienne", description: "Do dowolnego otworu okiennego, montaż na obrotowych zaczepach.", href: "/moskitiery/okienne", pattern: "mesh" },
-    { title: "Moskitiery drzwiowe", description: "Do drzwi balkonowych i tarasowych, z samodomykaczem.", href: "/moskitiery/drzwiowe", pattern: "mesh" },
-    { title: "Moskitiery ramkowe", description: "Uszczelka zewnętrzna dodatkowo domykająca krawędzie.", href: "/moskitiery/ramkowe", pattern: "mesh" },
-    { title: "Moskitiery rolowane", description: "Wersja pozioma i pionowa z mechanizmem sprężynowym.", href: "/moskitiery/rolowane", pattern: "mesh" },
+    { title: "Moskitiery okienne", description: "Do dowolnego otworu okiennego, montaż na obrotowych zaczepach.", href: "/moskitiery/okienne", image: imgOkienne },
+    { title: "Moskitiery drzwiowe", description: "Do drzwi balkonowych i tarasowych, z samodomykaczem.", href: "/moskitiery/drzwiowe", image: imgOkienne },
+    { title: "Moskitiery ramkowe", description: "Uszczelka zewnętrzna dodatkowo domykająca krawędzie.", href: "/moskitiery/ramkowe", image: imgRamkowe },
+    { title: "Moskitiery rolowane", description: "Wersja pozioma i pionowa z mechanizmem sprężynowym.", href: "/moskitiery/rolowane", image: imgRamkowe },
   ],
   faq: [
     {

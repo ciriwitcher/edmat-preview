@@ -1,4 +1,8 @@
 import type { ServicePageContent } from "@/lib/content/types";
+import imgAluminiowe from "@/assets/stock/zaluzje-aluminiowe.jpg";
+import imgDrewniane from "@/assets/stock/zaluzje-drewniane.jpg";
+import imgPlisowane from "@/assets/stock/zaluzje-plisowane.jpg";
+import imgPionowe from "@/assets/stock/zaluzje-pionowe.jpg";
 
 const parent = { parentLabel: "Żaluzje", parentHref: "/zaluzje" };
 
@@ -32,6 +36,8 @@ export const aluminioweContent: ServicePageContent = {
   ...parent,
   slug: "aluminiowe",
   title: "Żaluzje aluminiowe",
+  heroImage: imgAluminiowe,
+  heroImageAlt: "Żaluzje aluminiowe w oknie z widocznymi lamelami",
   eyebrow: "Osłony okienne · Żaluzje",
   metaDescription: "Żaluzje aluminiowe marki Anwis w Krośnie — lamele 16, 25 i 50 mm, prosta konstrukcja i długa żywotność.",
   intro:
@@ -57,6 +63,8 @@ export const drewnianeContent: ServicePageContent = {
   ...parent,
   slug: "drewniane",
   title: "Żaluzje drewniane",
+  heroImage: imgDrewniane,
+  heroImageAlt: "Żaluzje drewniane zbliżenie na lamele",
   eyebrow: "Osłony okienne · Żaluzje",
   metaDescription: "Żaluzje drewniane marki Anwis w Krośnie — egzotyczne drewno Abachi i lipa, lamele 25 i 50 mm.",
   intro:
@@ -80,6 +88,8 @@ export const plisowaneContent: ServicePageContent = {
   ...parent,
   slug: "plisowane",
   title: "Żaluzje plisowane",
+  heroImage: imgPlisowane,
+  heroImageAlt: "Żaluzje plisowane na oknie w minimalistycznym wnętrzu",
   eyebrow: "Osłony okienne · Żaluzje",
   metaDescription: "Żaluzje plisowane marki Anwis w Krośnie — do okien nietypowych, skośnych i trudno dostępnych.",
   intro:
@@ -103,6 +113,8 @@ export const pionoweContent: ServicePageContent = {
   ...parent,
   slug: "pionowe",
   title: "Żaluzje pionowe",
+  heroImage: imgPionowe,
+  heroImageAlt: "Żaluzje pionowe na dużym przeszkleniu budynku",
   eyebrow: "Osłony okienne · Żaluzje",
   metaDescription: "Żaluzje pionowe (verticale) marki Anwis w Krośnie — do dużych przeszkleń i powierzchni podziału pomieszczeń.",
   intro:
